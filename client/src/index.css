@@ -1,0 +1,137 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@font-face {
+  font-family: "yearpeer-font";
+  src: url("/fonts/yearpeer-medium.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "yearpeer-font";
+  src: url("/fonts/yearpeer-extrabold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'yearpeer';
+  src: url('/fonts/yearpeer.woff2') format('woff2'),
+  url('/fonts/yearpeer.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: "yearpeer-font", sans-serif;
+  font-weight: normal;
+}
+
+.bg-card-gradient {
+  background: linear-gradient(rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.03)),
+  linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255));
+}
+
+/* base class */
+.icon {
+  display: inline-block;
+  font: normal normal normal 1em/1 'yearpeer';
+  color: inherit;
+  flex-shrink: 0;
+  line-height: 1;
+  max-width: initial;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-archive-2::before {
+  content: "\EA13";
+}
+
+.icon-chevron-left::before {
+  content: "\EA40";
+}
+.icon-chevron-right::before {
+  content: "\EA45";
+}
+
+.icon-circle-checked::before {
+  content: "\EA66"
+}
+
+.icon-user-1::before {
+  content: "\EA6B"
+}
+
+.icon-subscription::before {
+  content: "\EA69"
+}
+
+.icon-rect-logout::before {
+  content: "\EA68"
+}
+
+.icon-caret-right::before {
+  content: "\EA70"
+}
+
+.icon-caret-left::before {
+  content: "\EA71"
+}
+
+.icon-circle-plus::before {
+  content: "\EA72"
+}
+
+.icon-xmark::before {
+  content: "\EA67"
+}
+
+.icon-fill::before {
+  content: "\EA73"
+}
+
+.icon-circle-compose-2::before {
+  content: "\EA74"
+}
+
+.icon-notepad::before {
+  content: "\EA75"
+}
+
+.icon-books::before {
+  content: "\EA77"
+}
+
+.icon-newspaper::before {
+  content: "\EA76"
+}
+
+.icon-folder-1::before {
+  content: "\EA78"
+}
+
+.icon-pen::before {
+  content: "\EA7D"
+}
+
+.icon-trash::before {
+  content: "\EA7E"
+}
+
+.icon-black {
+  color: rgba(0,0,0, 1)
+}
+
+.icon-black-60 {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+body {
+  font-family: "yearpeer-font", sans-serif;
+  font-weight: normal;
+}
