@@ -69,7 +69,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
     const login = () => {
         // Redirect to backend auth endpoint
-        window.location.href = `${import.meta.env.VITE_API_URL}/auth/login`;
+        window.location.href = `api/auth/login`;
     };
 
     const logout = async () => {

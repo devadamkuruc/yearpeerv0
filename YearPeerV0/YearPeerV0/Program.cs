@@ -20,7 +20,7 @@ var builder = WebApplication.CreateBuilder(args);
 ApiConfig.Initialize(builder.Configuration);
 
 // Add Lambda support
-builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
+builder.Services.AddAWSLambdaHosting(LambdaEventSource.RestApi);
 
 // Configure database
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -78,10 +78,7 @@ builder.Services.AddCors(options =>
         builder =>
         {
             builder
-                .WithOrigins("http://localhost:5173")
-                .AllowCredentials()
-                .AllowAnyMethod()
-                .AllowAnyHeader();
+                .AllowAnyOrigin();
         });
 });
 
