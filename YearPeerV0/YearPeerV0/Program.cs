@@ -1,9 +1,11 @@
 using System.Security.Claims;
+using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Amazon.SimpleEmail;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.OpenApi.Models;
 using YearPeerV0.Configuration;
 using YearPeerV0.Data;
@@ -143,6 +145,29 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 var app = builder.Build();
+
+app.Use((context, next) =>
+{
+    if (Regex.IsMatch(context.Request.Path, @"^\/calendar", RegexOptions.Compiled | RegexOptions.IgnoreCase,
+            TimeSpan.FromSeconds(1)))
+    {
+        context.Request.Path = "/index.html";
+    }
+    if (Regex.IsMatch(context.Request.Path, @"^\/sign-in", RegexOptions.Compiled | RegexOptions.IgnoreCase,
+            TimeSpan.FromSeconds(1)))
+    {
+        context.Request.Path = "/index.html";
+    }
+    
+    return next();
+});
+
+app.UseDefaultFiles();
+app.UseStaticFiles();
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedProto
+});
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
